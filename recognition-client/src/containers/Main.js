@@ -13,7 +13,7 @@ class Main extends Component {
   }
 }
 
-mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
     loginUser: user => dispatch({type: "LOGIN_USER", user})
   }
