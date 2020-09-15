@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
       cookies.signed[:jwt] = {value:  created_jwt, httponly: true, expires: 1.hour.from_now}
       render json: @user
     else
-      render json: {error: "User not authenticated"}
+      render json: {
+        error: "Username or password incorrect"
+      }, status: 404
     end
+  end
+
+  def destroy
   end
 end

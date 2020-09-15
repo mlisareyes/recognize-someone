@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  include ::ActionController::Cookies
+  include ::ActionController::Cookies #this is to access the cookies method to set, get, and delete HTTPOnly Cookies
 
   def current_user
   end
@@ -11,6 +11,8 @@ class ApplicationController < ActionController::API
     JWT.encode(payload, "super secret")
   end
 
-  def decode_token
+  def authenticate_user
+    jwt = cookies.signed[:jwt]
+    decode_jwt(jwt)
   end
 end
