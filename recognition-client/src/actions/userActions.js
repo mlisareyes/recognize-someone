@@ -1,8 +1,8 @@
-export const loginUser = () => {
+export const loginUser = (user) => {
   return(dispatch) => {
     fetch("http://localhost:3000/login", {
       method: 'POST',
-      headers" {
+      headers: {
         "Content-Type":"application/json",
       },
       credentials: 'include',
