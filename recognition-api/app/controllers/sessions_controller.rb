@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
   def create #login
-    binding.pry
+    @user =
   end
 end
