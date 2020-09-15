@@ -9,6 +9,6 @@ export const loginUser = (user) => {
       body: JSON.stringify({user: user})
     })
     .then(response => response.json())
-    .then(data => dispatch({type: "LOGIN_USER", user: data }))
+    .then(data => dispatch({type: "LOGIN_USER", user: data}))
   }
 }
