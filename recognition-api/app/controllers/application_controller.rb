@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
   def logged_in?
   end
 
-  def encode_token(payload)
+  def issue_token(payload)
     JWT.encode(payload, "super secret")
   end
 
