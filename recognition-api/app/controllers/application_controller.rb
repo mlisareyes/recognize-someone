@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   end
 
   def issue_token(payload)
-    JWT.encode(payload, "super secret")
+    JWT.encode(payload, "$up3r $ecr3t")
   end
 
   def authenticate_user
