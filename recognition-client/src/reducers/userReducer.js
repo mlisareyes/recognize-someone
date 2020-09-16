@@ -1,4 +1,4 @@
-const userReducer = (state={user: {}, loggedIn: false}, action) => {
+const userReducer = (state = {}, action) => {
   switch(action.type) {
     case 'LOGIN_USER':
       return {user: action.user}
