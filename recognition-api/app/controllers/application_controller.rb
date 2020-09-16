@@ -15,7 +15,4 @@ class ApplicationController < ActionController::API
     jwt = cookies.signed[:jwt]
     decode_jwt(jwt)
   end
-
-  def user_serializer(user)
-  end
 end
