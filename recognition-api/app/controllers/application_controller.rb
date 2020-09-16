@@ -3,10 +3,11 @@ class ApplicationController < ActionController::API
 
   def current_user
     #User.find_by(id: authenticate_user)
+    @current_user ||= User.find_by(id: authenticate_user)
   end
 
   def logged_in?
-    #!!current_user
+    !!current_user
   end
 
   def issue_token(payload)
@@ -15,6 +16,6 @@ class ApplicationController < ActionController::API
 
   def authenticate_user
     jwt = cookies.signed[:jwt]
-    decode_jwt(jwt)
+    decode_jwt(jwt, "$up3r $ecr3t", "HS256")[0]["id"]
   end
 end

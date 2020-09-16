@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    ender json: @users
+    ender json: UserSerializer.new(@users).serialized_json
   end
 
   def create #signup
@@ -12,16 +12,17 @@ class UsersController < ApplicationController
     if @user.save
       created_jwt = issue_token({id: user.id})
       cookies.signed[:jwt] = {value:  created_jwt, httponly: true, expires: 1.hour.from_now}
-      render json: @user
+      render json: UserSerializer.new(@users).serialized_json
     else
       render json: {error: "User does not exist"}
     end
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    # @user = User.find_by_id(params[:id])
+    @user = current_user
     #render error if !@user
-    render json: @user
+    render json: UserSerializer.new(@users).serialized_json
   end
 
   private
