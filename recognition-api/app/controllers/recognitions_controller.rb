@@ -18,6 +18,6 @@ class RecognitionsController < ApplicationController
   private
 
   def recognition_params
-    params.require(:recognition).permit(:user_id, :content)
+    params.require(:recognition).permit(:author, :receiver, :content)
   end
 end
