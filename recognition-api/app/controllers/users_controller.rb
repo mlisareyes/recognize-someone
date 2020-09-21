@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    ender json: UserSerializer.new(@users).serialized_json
+    render json: UserSerializer.new(@users).serialized_json
   end
 
   def create #signup
