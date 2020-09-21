@@ -1,0 +1,2 @@
+class RecognitionsController < ApplicationController
+end
