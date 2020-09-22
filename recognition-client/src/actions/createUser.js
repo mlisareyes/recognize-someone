@@ -11,5 +11,6 @@ export const createUser = (payload) => {
     })
     .then(response => response.json())
     .then(data => dispatch({type: 'CREATE_USER', user: data}))
+    console.log(payload)
   }
 }

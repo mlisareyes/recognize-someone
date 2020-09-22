@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenicate_user, only: [:show]
+  before_action :authenticate_user, only: [:show]
 
   def index
     @users = User.all
@@ -10,11 +10,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      created_jwt = issue_token({id: user.id})
+      created_jwt = issue_token({id: @user.id})
       cookies.signed[:jwt] = {value:  created_jwt, httponly: true, expires: 1.hour.from_now}
-      render json: UserSerializer.new(@users).serialized_json
+      render json: UserSerializer.new(@user).serialized_json
     else
-      render json: {error: "User does not exist"}
+      render json: {error: "User does not exist"}, status: 404
     end
   end
 

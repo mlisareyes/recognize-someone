@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import {createUser} from '../actions/createUser'
+import {connect} from 'react-redux'
 
 class SignUp extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      first_name: "",
-      last_name: "",
+      firstname: "",
+      lastname: "",
       email: "",
       password: ""
     }
@@ -21,14 +23,14 @@ class SignUp extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createUser({
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
+      first_name: this.state.firstname,
+      last_name: this.state.lastname,
       email: this.state.email,
       password: this.state.password
     })
     this.setState({
-      first_name: "",
-      last_name: "",
+      firstname: "",
+      lastname: "",
       email: "",
       password: ""
     })
@@ -54,4 +56,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+export default connect(null, {createUser})(SignUp)
