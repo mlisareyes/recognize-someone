@@ -16,7 +16,6 @@ class SignUp extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-
   }
 
   handleOnSubmit = event => {
@@ -27,24 +26,31 @@ class SignUp extends Component {
       email: this.state.email,
       password: this.state.password
     })
+    this.setState({
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: ""
+    })
   }
 
   render() {
-    <div className="SignUp">
-      <form onSubmit={this.handleOnSubmit}>
-      <br />
-      <input type="text" name="firstname" placeholder="First Name" value={this.state.first_name} onChange={this.handleOnChange} />
-      <br />
-      <input type="text" name="lastname" placeholder="Last Name" value={this.state.last_name} onChange={this.handleOnChange} />
-      <br />
-      <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.handleOnChange} />
-      <br />
-      <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleOnChange} />
-      <br />
-      <input type="submit" value="Sign Up" />
-      </form>
-    </div>
-
+    return(
+      <div className="SignUp">
+        <form onSubmit={this.handleOnSubmit}>
+          <br />
+          <input type="text" name="firstname" placeholder="First Name" value={this.state.first_name} onChange={this.handleOnChange} />
+          <br />
+          <input type="text" name="lastname" placeholder="Last Name" value={this.state.last_name} onChange={this.handleOnChange} />
+          <br />
+          <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.handleOnChange} />
+          <br />
+          <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleOnChange} />
+          <br />
+          <input type="submit" value="Sign Up" />
+        </form>
+      </div>
+    )
   }
 }
 

@@ -10,10 +10,11 @@ class Main extends Component {
   render() {
     return(
       <div>
+        <SignUp createUser={this.props.createUser}/>
         <Login loginUser={this.props.loginUser}/>
       </div>
     )
   }
 }
 
-export default connect(null, {loginUser})(Main)
+export default connect(null, {createUser, loginUser})(Main)

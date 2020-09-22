@@ -9,7 +9,7 @@ export const createUser = (payload) => {
       },
       body: JSON.stringify({user: payload})
     })
+    .then(response => response.json())
+    .then(data => dispatch({type: 'CREATE_USER', user: data}))
   }
-  .then(response => response.json())
-  .then(data => dispatch({type: 'CREATE_USER', user: data}))
 }
