@@ -41,15 +41,42 @@ class SignUp extends Component {
       <div className="SignUp">
         <form onSubmit={this.handleOnSubmit}>
           <br />
-          <input type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleOnChange} />
-          <br />
-          <input type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleOnChange} />
-          <br />
-          <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.handleOnChange} />
-          <br />
-          <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleOnChange} />
-          <br />
-          <input type="submit" value="Sign Up" />
+          <input
+            type="text"
+            name="first_name"
+            placeholder="First Name"
+            value={this.state.first_name}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last Name"
+            value={this.state.last_name}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            value={this.state.email}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="submit"
+            value="Sign Up"
+          />
         </form>
       </div>
     )
