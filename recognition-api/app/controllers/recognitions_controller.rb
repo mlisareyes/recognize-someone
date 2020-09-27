@@ -10,13 +10,15 @@ class RecognitionsController < ApplicationController
     @recognition = Recognition.new(recognition_params)
 
     if @recognition.save
-      render json: RecognitionSerializer.new(@recognitions).serialized_json
+      render json: RecognitionSerializer.new(@recognition).serialized_json
     else
       render json: {error: "Recognition not created"}
     end
   end
 
   def show
+    @recognition = Recognition.find(params[:id])
+    render json: RecognitionSerializer.new(recognition).serialized_json
   end
 
   def update

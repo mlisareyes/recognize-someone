@@ -1,14 +1,14 @@
-export const loginUser = (user) => {
+export const loginUser = (user, callback) => {
   return(dispatch) => {
     fetch("http://localhost:3000/login", {
       method: 'POST',
+      credentials: 'include',
       headers: {
         "Content-Type":"application/json"
       },
-      credentials: 'include',
       body: JSON.stringify({user: user})
     })
     .then(response => response.json())
-    .then(data => dispatch({type: "LOGIN_USER", user: data}))
+    .then(userData => dispatch({type: "LOGIN_USER", user: userData}))
   }
 }

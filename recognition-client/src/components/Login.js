@@ -13,16 +13,16 @@ class Login extends Component {
   }
 
   handleOnSubmit = event => {
-    event.preventDefault()
-    this.props.loginUser({
-      email: this.state.email,
-      password: this.state.password
+    event.preventDefault();
+    this.props.loginUser(this.state, () => {
+      this.props.history.push("/newsfeed")
+      // email: this.state.email,
+      // password: this.state.password
     })
     this.setState({
       email: "",
       password: ""
     })
-
   }
 
   render() {
@@ -30,12 +30,27 @@ class Login extends Component {
       <div className="Login">
         <form onSubmit={this.handleOnSubmit}>
           <br />
-          <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.handleOnChange} />
-          <br />
-          <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleOnChange} />
-          <br />
-          <input type="submit" value="login" />
-          </form>
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            value={this.state.email}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.handleOnChange}
+          /><br />
+
+          <input
+            type="submit"
+            value="login"
+          />
+        </form>
       </div>
     )
   }

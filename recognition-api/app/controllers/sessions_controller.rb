@@ -14,6 +14,11 @@ class SessionsController < ApplicationController #AKA authentication_controller
   end
 
   def get_current_user
+    if logged_in?
+      render json: UserSerializer(current_user)
+    else
+      render json: {error: "User does not exist"}
+    end
   end
 
   def destroy
