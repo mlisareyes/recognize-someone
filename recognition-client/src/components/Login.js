@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {loginUser} from '../actions/loginUser'
+import {withRouter} from 'react-router-dom';
 
 class Login extends Component {
   state = {
@@ -15,7 +18,7 @@ class Login extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.loginUser(this.state, () => {
-      this.props.history.push("/newsfeed")
+      this.props.history.push('/newsfeed')
       // email: this.state.email,
       // password: this.state.password
     })
@@ -54,7 +57,12 @@ class Login extends Component {
       </div>
     )
   }
-
 }
 
-export default Login
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, {loginUser})(withRouter(Login))
