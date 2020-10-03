@@ -8,12 +8,6 @@ export const createRecognition = (payload) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({recognition: payload})
-      // body: JSON.stringify({
-      //   recognition: {
-      //     content: newRecognition.recognition,
-      //     user_id: author_id
-      //   }
-      // })
     })
     .then(response => response.json())
     // .then(response => console.log("recog response", response))

@@ -1,8 +1,7 @@
 import React from 'react'
 
-const renderRecognitions = (recognitions) => {
-  const sortedRecognitions = recognitions.sort((a, b) => b.id - a.id)
-  return sortedRecognitions.map(recognition => {
+const renderRecognitions = (props) => {
+  return props.recognitions.map(recognition => {
     return (
       <div className="recognition-card" key={recognition.id}>
         <p>{recognition.content}</p>
@@ -11,10 +10,10 @@ const renderRecognitions = (recognitions) => {
   })
 }
 
-const Newsfeed = ({ recognitions }) => {
+const Newsfeed = props => {
   return (
     <div className="recognition-container">
-      {renderRecognitions(recognitions)}
+      {renderRecognitions(props)}
     </div>
   )
 }

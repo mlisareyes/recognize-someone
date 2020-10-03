@@ -1,4 +1,4 @@
-const recognitionsReducer = (state = {}, action) => {
+const recognitionReducer = (state = {}, action) => {
   switch(action.type) {
     case 'CREATE_RECOGNITION':
       return {recognition: action.recognition}
