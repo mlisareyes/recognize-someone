@@ -8,9 +8,6 @@ class RecognitionForm extends Component {
     content: "",
     author_id: ""
   }
-  // state = {
-  //   recognition: ""
-  // }
 
   handleOnChange = event => {
     this.setState({
@@ -20,10 +17,6 @@ class RecognitionForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // this.props.createRecognition(this.state, this.props.user);
-    // this.setState({
-    //   recognition: ""
-    // })
     this.props.createRecognition({
       receiver_id: Number(this.state.receiver_id),
       content: this.state.content,
