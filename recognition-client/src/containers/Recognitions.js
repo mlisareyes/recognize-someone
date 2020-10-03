@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getRecognitions} from '../actions/getRecognitions'
 import Newsfeed from '../components/Newsfeed'
+import RecognitionForm from '../components/RecognitionForm'
 
 class Recognitions extends Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ class Recognitions extends Component {
   render() {
     return (
       <div>
+        <RecognitionForm />
         <Newsfeed recognitions={this.props.recognitions} />
       </div>
     )
@@ -19,7 +21,7 @@ class Recognitions extends Component {
 
 const mapStateToProps = ({ recognitions }) => {
   return {
-    recognitions
+    recognitions: recognitions
   }
 }
 
