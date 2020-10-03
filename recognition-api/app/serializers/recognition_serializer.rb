@@ -1,4 +1,6 @@
 class RecognitionSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :author, :receiver, :content#, :author_id, :receiver_id
+  attributes :content
+  belongs_to :author, class_name: "User"
+  belongs_to :receiver, class_name: "User"
 end

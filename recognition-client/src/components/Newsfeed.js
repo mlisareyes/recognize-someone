@@ -1,21 +1,22 @@
-import React, {Component} from 'react'
-// import {connect} from 'react-redux'
-// import {currentUser} from '../actions/currentUser'
-// import { useHistory } from 'react-router-dom'
+import React from 'react'
 
-class Newsfeed extends Component {
-
-// componentDidMount() {
-//   this.props.currentUser()
-// }
-
-  render() {
+const renderRecognitions = (recognitions) => {
+  const sortedRecognitions = recognitions.sort((a, b) => b.id - a.id)
+  return sortedRecognitions.map(recognition => {
     return (
-      <div>
-        Welcome!
+      <div className="recognition-card" key={recognition.id}>
+        <p>{recognition.content}</p>
       </div>
     )
-  }
+  })
+}
+
+const Newsfeed = ({ recognitions }) => {
+  return (
+    <div className="recognition-container">
+      {renderRecognitions(recognitions)}
+    </div>
+  )
 }
 
 export default Newsfeed
@@ -25,3 +26,29 @@ export default Newsfeed
 //need to import recognitions form
 //Who do you want to recognize?
 //Who recognized you?
+
+// import RecognitionForm from '../components/RecognitionForm'
+// import Recognition from '../components/Recognition'
+// import {getRecognitions} from '../actions/getRecognitions'
+// import {connect} from 'react-redux'
+// import {currentUser} from '../actions/currentUser'
+// import { useHistory } from 'react-router-dom'
+
+// class Newsfeed extends Component {
+//
+// // componentDidMount() {
+// //   this.props.currentUser()
+// // }
+//
+//   render() {
+//     return (
+//       <div>
+//         Welcome!
+//         <RecognitionForm />
+//         <Recognition />
+//       </div>
+//     )
+//   }
+// }
+//
+// export default Newsfeed

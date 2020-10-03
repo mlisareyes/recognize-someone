@@ -1,11 +1,16 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {createRecognition} from '../actions/createRecognition'
 
 class RecognitionForm extends Component {
   state = {
-    receiver: "",
+    receiver_id: "",
     content: "",
-    author: ""
+    author_id: ""
   }
+  // state = {
+  //   recognition: ""
+  // }
 
   handleOnChange = event => {
     this.setState({
@@ -15,16 +20,20 @@ class RecognitionForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createRecognition(this.state, () => {
-      receiver: this.state.receiver,
+    // this.props.createRecognition(this.state, this.props.user);
+    // this.setState({
+    //   recognition: ""
+    // })
+    this.props.createRecognition({
+      receiver_id: Number(this.state.receiver_id),
       content: this.state.content,
-      author: this.state.author
-
+      author_id: Number(this.state.author_id)
     })
+
     this.setState({
-      receiver: "",
+      receiver_id: "",
       content: "",
-      author: ""
+      author_id: ""
     })
   }
 
@@ -34,22 +43,29 @@ class RecognitionForm extends Component {
         <form onSubmit={this.handleOnSubmit}>
           <br />
           <input
-            type="search"
-            name="receiver"
-            placeholder="Send to:"
-            value={this.state.receiver}
+            type="integer"
+            name="receiver_id"
+            placeholder="Send to"
+            value={this.state.receiver_id}
             onChange={this.handleOnChange}
           /><br />
 
           <input
             type="text"
-            name="content"
-            placeholder="content"
-            value={this.state.content}
+            name="recognition"
+            placeholder="Write your recognition here!"
+            value={this.state.recognition}
             onChange={this.handleOnChange}
           /><br />
 
-// the author should be automatic to the current user
+          <input
+            type="integer"
+            name="author_id"
+            placeholder="Sender"
+            value={this.state.author_id}
+            onChange={this.handleOnChange}
+          /><br />
+
           <input
             type="submit"
             value="Submit"
@@ -57,9 +73,13 @@ class RecognitionForm extends Component {
         </form>
       </div>
     )
-
   }
-
 }
 
-export default RecognitionForm
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, {createRecognition})(RecognitionForm)

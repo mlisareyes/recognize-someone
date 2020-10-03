@@ -3,7 +3,7 @@ class RecognitionsController < ApplicationController
   def index
     @recognitions = Recognition.all
 
-    render json: RecognitionSerializer.new(@recognition).serialized_json
+    render json: RecognitionSerializer.new(@recognitions).serialized_json
   end
 
   def create
@@ -30,6 +30,6 @@ class RecognitionsController < ApplicationController
   private
 
   def recognition_params
-    params.require(:recognition).permit(:author, :receiver, :content)
+    params.require(:recognition).permit(:receiver_id, :content, :author_id)
   end
 end
