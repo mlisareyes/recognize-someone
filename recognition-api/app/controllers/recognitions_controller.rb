@@ -17,8 +17,9 @@ class RecognitionsController < ApplicationController
   end
 
   def show
-    @recognition = Recognition.find(params[:id])
-    render json: RecognitionSerializer.new(recognition).serialized_json
+    @recognition = Recognition.find_by_id(params[:id])
+
+    render json: RecognitionSerializer.new(@recognition).serialized_json
   end
 
   def update

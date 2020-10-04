@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     # @user = User.find_by_id(params[:id])
     @user = current_user
     #render error if !@user
-    render json: UserSerializer.new(@users).serialized_json
+    render json: UserSerializer.new(@user).serialized_json
   end
 
   private
