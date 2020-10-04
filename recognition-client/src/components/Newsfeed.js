@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from './Content'
+// import Content from './Content'
 import { connect } from 'react-redux';
 
 
@@ -8,7 +8,7 @@ const renderRecognitions = (recognitions) => {
   return recognitions.map(recognition => {
     return (
       <div>
-        <Content content={recognition.attributes.content} />
+        <text>{recognition.attributes.content}</text>
       </div>
     )
   })
