@@ -45,9 +45,9 @@ class RecognitionForm extends Component {
 
           <input
             type="text"
-            name="recognition"
+            name="content"
             placeholder="Write your recognition here!"
-            value={this.state.recognition}
+            value={this.state.content}
             onChange={this.handleOnChange}
           /><br />
 

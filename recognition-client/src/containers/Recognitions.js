@@ -4,10 +4,13 @@ import {getRecognitions} from '../actions/getRecognitions'
 import Newsfeed from '../components/Newsfeed'
 import RecognitionForm from '../components/RecognitionForm'
 
+
 class Recognitions extends Component {
+
   componentDidMount() {
     this.props.getRecognitions()
   }
+
 
   render() {
     return (
