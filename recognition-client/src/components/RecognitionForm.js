@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {createRecognition} from '../actions/createRecognition'
-import { Dropdown } from 'semantic-ui-react'
+// import { Dropdown } from 'semantic-ui-react'
 
 class RecognitionForm extends Component {
   state = {
@@ -9,16 +9,6 @@ class RecognitionForm extends Component {
     content: "",
     author_id: ""
   }
-
-  // employeeOptions = (users) => {
-  //   return users.map((user, index) => {
-  //     return (
-  //       key: user.id,
-  //       text: {user.first_name + " " + user.last_name},
-  //       value: user.id
-  //     )
-  //   })
-  // }
 
   handleOnChange = event => {
     this.setState({
@@ -54,14 +44,6 @@ class RecognitionForm extends Component {
             onChange={this.handleOnChange}
           /><br />
 
-          <Dropdown
-            placeholder="Who do you want to recognize?"
-            fluid
-            search
-            selection
-          
-          />
-
           <input
             type="text"
             name="content"
@@ -80,4 +62,11 @@ class RecognitionForm extends Component {
   }
 }
 
-export default connect(null, {createRecognition})(RecognitionForm)
+// export default connect(null, {createRecognition})(RecognitionForm)
+
+const mapStateToProps = ({currentUser}) => {
+  return {
+    currentUser
+  }
+}
+export default connect(mapStateToProps, {createRecognition})(RecognitionForm)
