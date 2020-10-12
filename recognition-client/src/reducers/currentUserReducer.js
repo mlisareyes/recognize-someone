@@ -1,7 +1,7 @@
 const currentUserReducer = (state = {}, action) => {
   switch(action.type) {
     case 'CURRENT_USER':
-      return action.user
+      return action.users
     default:
       return state;
   }

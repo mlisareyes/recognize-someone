@@ -4,7 +4,7 @@ import recognitionReducer from './recognitionReducer'
 import currentUserReducer from './currentUserReducer'
 
 const rootReducer = combineReducers({
-    user: userReducer,
+    users: userReducer,
     currentUser: currentUserReducer,
     recognitions: recognitionReducer
 })
