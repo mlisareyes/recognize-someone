@@ -1,15 +1,17 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import Main from './containers/Main'
 import Recognitions from './containers/Recognitions'
 import About from './components/About'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {currentUser} from './actions/currentUser'
 import './App.css'
 
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.currentUser()
-  // }
+  componentDidMount() {
+    this.props.currentUser()
+  }
 
   render() {
     return (
@@ -26,11 +28,11 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = ({user}) => {
-//   return {
-//     user
-//   }
-// }
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
 
-// export default connect(mapStateToProps, {currentUser})(App)
-export default App
+export default connect(mapStateToProps, {currentUser})(App)
+// export default App

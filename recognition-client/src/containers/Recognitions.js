@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getRecognitions} from '../actions/getRecognitions'
+import {createRecognition} from '../actions/createRecognition'
 import Newsfeed from '../components/Newsfeed'
 import RecognitionForm from '../components/RecognitionForm'
 
 
 class Recognitions extends Component {
-
-  componentDidMount() {
+  componentWillMount() {
     this.props.getRecognitions()
   }
-
+  shouldComponentUpdate(){
+    return true
+  }
 
   render() {
     return (
@@ -28,4 +30,4 @@ const mapStateToProps = ({ recognitions }) => {
   }
 }
 
-export default connect(mapStateToProps, {getRecognitions})(Recognitions)
+export default connect(mapStateToProps, {getRecognitions, createRecognition})(Recognitions)

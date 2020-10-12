@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  get '/currentuser' => 'sessions#currentuser'
+  get '/currentuser' => 'sessions#get_current_user'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
