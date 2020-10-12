@@ -7,7 +7,7 @@ const userReducer = (state = {}, action) => {
     case 'GET_USER':
       return action.payload
     case 'CURRENT_USER':
-      return {user: action.user}
+      return action.user
     case 'LOGOUT_USER':
        return {}
 

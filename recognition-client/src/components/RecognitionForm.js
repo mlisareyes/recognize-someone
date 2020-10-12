@@ -9,10 +9,6 @@ class RecognitionForm extends Component {
     author_id: ""
   }
 
-  shouldComponentUpdate() {
-    return true
-  }
-
   handleOnChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -24,7 +20,7 @@ class RecognitionForm extends Component {
     this.props.createRecognition({
       receiver_id: Number(this.state.receiver_id),
       content: this.state.content,
-      author_id: Number(this.state.author_id)
+      author_id: this.props.currentUser.id
     });
 
     this.setState({
@@ -56,14 +52,6 @@ class RecognitionForm extends Component {
           /><br />
 
           <input
-            type="integer"
-            name="author_id"
-            placeholder="Sender"
-            value={this.state.author_id}
-            onChange={this.handleOnChange}
-          /><br />
-
-          <input
             type="submit"
             value="Submit"
           />
@@ -74,10 +62,3 @@ class RecognitionForm extends Component {
 }
 
 export default connect(null, {createRecognition})(RecognitionForm)
-// const mapStateToProps = ({user}) => {
-//   return {
-//     user
-//   }
-// }
-
-// export default connect(mapStateToProps, {createRecognition})(RecognitionForm)

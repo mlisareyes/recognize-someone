@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getRecognitions} from '../actions/getRecognitions'
-import {createRecognition} from '../actions/createRecognition'
+import {currentUser} from '../actions/currentUser'
 import Newsfeed from '../components/Newsfeed'
 import RecognitionForm from '../components/RecognitionForm'
 
@@ -9,25 +9,28 @@ import RecognitionForm from '../components/RecognitionForm'
 class Recognitions extends Component {
   componentWillMount() {
     this.props.getRecognitions()
-  }
-  shouldComponentUpdate(){
-    return true
+    this.props.currentUser()
   }
 
   render() {
     return (
       <div>
-        <RecognitionForm />
-        <Newsfeed recognitions={this.props.recognitions} />
+        <RecognitionForm
+          currentUser={this.props.user}
+        />
+        <Newsfeed
+          recognitions={this.props.recognitions}
+        />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ recognitions }) => {
+const mapStateToProps = ({ recognitions, user }) => {
   return {
-    recognitions: recognitions
+    recognitions: recognitions,
+    user: user
   }
 }
 
-export default connect(mapStateToProps, {getRecognitions, createRecognition})(Recognitions)
+export default connect(mapStateToProps, {getRecognitions, currentUser})(Recognitions)

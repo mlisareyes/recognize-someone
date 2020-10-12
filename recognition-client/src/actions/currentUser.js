@@ -7,6 +7,6 @@ export const currentUser = () => {
       }
     })
     .then(response => response.json())
-    .then(data => dispatch({type: "CURRENT_USER", user: data}))
+    .then(data => dispatch({type: "CURRENT_USER", user: data.data}))
   }
 }
