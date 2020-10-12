@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {createRecognition} from '../actions/createRecognition'
+// import {getUsers} from '../actions/getUsers'
 // import { Dropdown } from 'semantic-ui-react'
 
 class RecognitionForm extends Component {
@@ -19,7 +20,7 @@ class RecognitionForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createRecognition({
-      receiver_id: Number(this.state.receiver_id),
+      receiver_id: event.target[0].value,
       content: this.state.content,
       author_id: this.props.currentUser.id
     });
@@ -34,15 +35,20 @@ class RecognitionForm extends Component {
   render() {
     return(
       <div className="RecognitionForm">
+
         <form onSubmit={this.handleOnSubmit}>
           <br />
-          <input
-            type="integer"
-            name="receiver_id"
-            placeholder="Send to"
-            value={this.state.receiver_id}
-            onChange={this.handleOnChange}
-          /><br />
+          <h1>Who Do You Want to Recognize?</h1>
+          <select placeholder="Employee">{this.props.users.map((user, index) => (
+            <option
+              placeholder="Choose Employee"
+              key={index}
+              value={user.id}
+              onChange={this.handleOnChange}
+              >
+              {user.attributes.full_name}
+            </option>))}
+          </select><br />
 
           <input
             type="text"
@@ -64,9 +70,10 @@ class RecognitionForm extends Component {
 
 // export default connect(null, {createRecognition})(RecognitionForm)
 
-const mapStateToProps = ({currentUser}) => {
+const mapStateToProps = ({currentUser, users}) => {
   return {
-    currentUser
+    currentUser: currentUser,
+    users: users
   }
 }
 export default connect(mapStateToProps, {createRecognition})(RecognitionForm)

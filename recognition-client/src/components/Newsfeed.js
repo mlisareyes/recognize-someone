@@ -23,6 +23,7 @@ class Newsfeed extends Component {
 
   render() {
     return (
+
       <div className="recognition-container">
         {this.renderRecognitions(this.props.recognitions)}
       </div>
