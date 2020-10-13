@@ -41,7 +41,6 @@ class RecognitionForm extends Component {
           <h1>Who Do You Want to Recognize?</h1>
           <select placeholder="Employee">{this.props.users.map((user, index) => (
             <option
-              placeholder="Choose Employee"
               key={index}
               value={user.id}
               onChange={this.handleOnChange}
@@ -67,8 +66,6 @@ class RecognitionForm extends Component {
     )
   }
 }
-
-// export default connect(null, {createRecognition})(RecognitionForm)
 
 const mapStateToProps = ({currentUser, users}) => {
   return {
