@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getRecognitions} from '../actions/getRecognitions'
 import {getUsers} from '../actions/getUsers'
 import {currentUser} from '../actions/currentUser'
+import NavBar from '../components/NavBar'
 import Newsfeed from '../components/Newsfeed'
 import RecognitionForm from '../components/RecognitionForm'
 
@@ -17,6 +18,7 @@ class Recognitions extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <RecognitionForm
           currentUser={this.props.currentUser}
           users={this.props.users}
