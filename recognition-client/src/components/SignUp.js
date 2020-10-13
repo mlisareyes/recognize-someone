@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {createUser} from '../actions/createUser'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom';
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -22,11 +24,12 @@ class SignUp extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.createUser({
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      password: this.state.password
+    this.props.createUser(this.state, () => {
+      // first_name: this.state.first_name,
+      // last_name: this.state.last_name,
+      // email: this.state.email,
+      // password: this.state.password
+      this.props.history.push('/home')
     })
     this.setState({
       first_name: "",
@@ -83,4 +86,10 @@ class SignUp extends Component {
   }
 }
 
-export default connect(null, {createUser})(SignUp)
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, {createUser})(withRouter(SignUp))

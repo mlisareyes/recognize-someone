@@ -11,7 +11,8 @@ class NavBar extends Component {
       <div className="navbar">
 
       <Link to="/home">Home</Link>---
-      <Link to="/about">About</Link>
+      <Link to="/about">About</Link>---
+      <Link to="/" className="item" onClick={() => this.props.logoutUser(this.props.currentUser.id)}>Log Out</Link>
 
       </div>
     )

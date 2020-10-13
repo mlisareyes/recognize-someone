@@ -3,9 +3,9 @@ const currentUserReducer = (state = {}, action) => {
     case 'CURRENT_USER':
       return action.users
     case 'CREATE_USER':
-      return {user: action.user}
+      return {user: action.payload}
     case 'LOGIN_USER':
-      return {user: action.user}
+      return {user: action.payload}
     case 'LOGOUT_USER':
       return {}
 
