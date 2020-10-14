@@ -1,6 +1,6 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :first_name, :last_name, :email
+  attributes :first_name, :last_name, :email, :received_recognitions
   # attributes :sent_recognitions, :received_recognitions
   attribute :full_name do |user|
     "#{user.first_name + " " + user.last_name}"

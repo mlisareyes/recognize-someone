@@ -1,7 +1,7 @@
 const currentUserReducer = (state = {}, action) => {
   switch(action.type) {
     case 'CURRENT_USER':
-      return action.users
+      return action.currentUser
     case 'CREATE_USER':
       return {user: action.payload}
     case 'LOGIN_USER':
