@@ -5,10 +5,6 @@ import React, { Component } from 'react'
 
 class Newsfeed extends Component {
 
-  // shouldComponentUpdate(){
-  //   return true
-  // }
-
   renderRecognitions = (recognitions) => {
     return recognitions.map((recognition, index) => {
       return (
@@ -31,40 +27,8 @@ class Newsfeed extends Component {
   }
 }
 
-
-// const Newsfeed = props => {
-//   return (
-//     <div className="recognition-container">
-//       {renderRecognitions(props)}
-//     </div>
-//   )
-// }
-// const Newsfeed = ({ recognitions }) => {
-//   return (
-//     <div>
-//       {renderRecognitions(recognitions)}
-//     </div>
-//   )
-// }
 export default Newsfeed
-//
-// const mapStateToProps = ({ recognitions }) => {
-//   return {
-//     recognitions
-//   }
-// }
-//
-// export default connect(mapStateToProps)(Newsfeed)
 
-// const Recognitions = (props) => {
-//   return (
-//     <div>
-//       {props.recognitions.map(recognition =>
-//       <li key={recognition.id}>
-//       {recognition.content}</li>)}
-//     </div>
-//   )
-// }
 
 //
 // const renderRecognitions = (recognitions) => {
