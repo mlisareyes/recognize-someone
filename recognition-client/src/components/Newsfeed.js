@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 // import Content from './Content'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import {deleteRecognition} from '../actions/deleteRecognition'
 
 
 class Newsfeed extends Component {
+
+  handleOnClick = event => {
+    this.props.deleteRecognition(event.target.value)
+  }
 
   renderRecognitions = (recognitions) => {
     return recognitions.map((recognition, index) => {
@@ -12,6 +17,7 @@ class Newsfeed extends Component {
           <h3>{recognition.attributes.receiver.first_name + " " + recognition.attributes.receiver.last_name} Recognized For:</h3>
           <p>{recognition.attributes.content}</p>
           <p>Written By: {recognition.attributes.author.first_name + " " + recognition.attributes.author.last_name}</p>
+          <p>{Number(this.props.currentUser.id) === recognition.attributes.author.id ? <button onClick={this.handleOnClick} value={recognition.id}>Delete</button> : null}</p>
         </div>
       )
     })
@@ -27,7 +33,13 @@ class Newsfeed extends Component {
   }
 }
 
-export default Newsfeed
+const mapStateToProps = ({currentUser}) => {
+  return {
+    currentUser: currentUser
+  }
+}
+
+export default connect(mapStateToProps, {deleteRecognition})(Newsfeed)
 
 
 //

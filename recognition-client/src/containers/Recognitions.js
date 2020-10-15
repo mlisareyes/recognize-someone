@@ -7,9 +7,8 @@ import NavBar from '../components/NavBar'
 import Newsfeed from '../components/Newsfeed'
 import RecognitionForm from '../components/RecognitionForm'
 
-
 class Recognitions extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getRecognitions()
     this.props.currentUser()
     this.props.getUsers()
@@ -25,6 +24,7 @@ class Recognitions extends Component {
         />
         <Newsfeed
           recognitions={this.props.recognitions}
+          currentUser={this.props.currentUser}
         />
       </div>
     )

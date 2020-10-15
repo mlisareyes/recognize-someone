@@ -6,10 +6,11 @@ import UserRecognitions from '../components/UserRecognitions'
 import NavBar from '../components/NavBar'
 
 class UserContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getRecognitions()
     this.props.currentUser()
   }
+
   render() {
     return (
       <div>
@@ -17,7 +18,7 @@ class UserContainer extends Component {
         <UserRecognitions
           recognitions={this.props.recognitions}
           currentUser={this.props.currentUser}
-          />
+        />
       </div>
     )
   }
@@ -31,4 +32,4 @@ const mapStateToProps = ({recognitions, currentUser}) => {
 }
 
 
-export default connect (mapStateToProps, {currentUser, getRecognitions})(UserContainer)
+export default connect (mapStateToProps, {getRecognitions, currentUser})(UserContainer)

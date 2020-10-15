@@ -1,20 +1,20 @@
 const recognitionReducer = (state = [], action) => {
-  const newState = [...state];
-
+  let newState = [...state];
     if(action.type === 'CREATE_RECOGNITION'){
       newState.unshift(action.recognition)
     }
-
     if(action.type === 'GET_RECOGNITIONS'){
-      action.rec.forEach(recognition => {
-        newState.push(recognition)
-      });
-      // console.log(action.rec)
+      newState = action.rec
+    }
+    if(action.type === 'DELETE_RECOGNITION'){
+      newState = newState.filter(recog => recog.id !== action.id)
     }
   return newState
 }
 
 export default recognitionReducer
+
+
 
 
 

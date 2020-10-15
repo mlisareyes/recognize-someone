@@ -26,6 +26,8 @@ class RecognitionsController < ApplicationController
   end
 
   def destroy
+    @recognition = Recognition.find_by_id(params[:id])
+    @recognition.destroy
   end
 
   private
