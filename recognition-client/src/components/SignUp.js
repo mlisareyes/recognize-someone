@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {createUser} from '../actions/createUser'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap'
 
 
 class SignUp extends Component {
@@ -42,45 +43,28 @@ class SignUp extends Component {
   render() {
     return(
       <div className="SignUp">
-        <form onSubmit={this.handleOnSubmit}>
-          <br />
-          <input
-            type="text"
-            name="first_name"
-            placeholder="First Name"
-            value={this.state.first_name}
-            onChange={this.handleOnChange}
-          /><br />
+        <h3>Sign Up Here</h3>
+        <Form onSubmit={this.handleOnSubmit}>
+          <Form.Group controlId="formSignUpFirstName">
+            <Form.Control type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleOnChange} />
+          </Form.Group>
 
-          <input
-            type="text"
-            name="last_name"
-            placeholder="Last Name"
-            value={this.state.last_name}
-            onChange={this.handleOnChange}
-          /><br />
+          <Form.Group controlId="formSignUpLastName">
+            <Form.Control type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleOnChange} />
+          </Form.Group>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={this.state.email}
-            onChange={this.handleOnChange}
-          /><br />
+          <Form.Group controlId="formSignUpEmail">
+            <Form.Control type="email" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleOnChange} />
+          </Form.Group>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleOnChange}
-          /><br />
+          <Form.Group controlId="formSignUpPassword">
+            <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange}/>
+          </Form.Group>
 
-          <input
-            type="submit"
-            value="Sign Up"
-          />
-        </form>
+          <Button variant="primary" type="submit">
+            Sign Up
+          </Button>
+        </Form>
       </div>
     )
   }

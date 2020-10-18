@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/loginUser'
 import {withRouter} from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap'
 
 class Login extends Component {
   state = {
@@ -32,29 +33,20 @@ class Login extends Component {
   render() {
     return(
       <div className="Login">
-        <form onSubmit={this.handleOnSubmit}>
-          <br />
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={this.state.email}
-            onChange={this.handleOnChange}
-          /><br />
+        <h3>Log In Here</h3>
+        <Form onSubmit={this.handleOnSubmit}>
+          <Form.Group controlId="formEmail">
+            <Form.Control type="email" name="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleOnChange} />
+          </Form.Group>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleOnChange}
-          /><br />
+          <Form.Group controlId="formPassword">
+            <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange}/>
+          </Form.Group>
 
-          <input
-            type="submit"
-            value="login"
-          />
-        </form>
+          <Button variant="primary" type="Log In">
+            Submit
+          </Button>
+        </Form>
       </div>
     )
   }

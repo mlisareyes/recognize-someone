@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import Content from './Content'
 import { connect } from 'react-redux';
 import {deleteRecognition} from '../actions/deleteRecognition'
+import { Button, Card } from 'react-bootstrap'
 
 
 class Newsfeed extends Component {
@@ -14,10 +15,15 @@ class Newsfeed extends Component {
     return recognitions.map((recognition, index) => {
       return (
         <div key={index} className="all-recognitions">
-          <h3>{recognition.attributes.receiver.first_name + " " + recognition.attributes.receiver.last_name} Recognized For:</h3>
-          <p>{recognition.attributes.content}</p>
-          <p>Written By: {recognition.attributes.author.first_name + " " + recognition.attributes.author.last_name}</p>
-          <p>{Number(this.props.currentUser.id) === recognition.attributes.author.id ? <button onClick={this.handleOnClick} value={recognition.id}>Delete</button> : null}</p>
+          <Card style={{ width: '30rem'}}>
+            <Card.Body>
+              <Card.Header as="h5">{recognition.attributes.receiver.first_name + " " + recognition.attributes.receiver.last_name}</Card.Header><br />
+              <Card.Subtitle>Recognized For:</Card.Subtitle><br />
+              <Card.Text>{recognition.attributes.content}</Card.Text>
+              <Card.Text>Written By: {recognition.attributes.author.first_name + " " + recognition.attributes.author.last_name}</Card.Text>
+              <Card.Text>{Number(this.props.currentUser.id) === recognition.attributes.author.id ? <Button variant="primary" onClick={this.handleOnClick} value={recognition.id}>Delete</Button> : null}</Card.Text>
+            </Card.Body>
+          </Card>
         </div>
       )
     })

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {createRecognition} from '../actions/createRecognition'
 // import {getUsers} from '../actions/getUsers'
 // import { Dropdown } from 'semantic-ui-react'
+import { Form, Button } from 'react-bootstrap'
 
 class RecognitionForm extends Component {
   state = {
@@ -36,32 +37,29 @@ class RecognitionForm extends Component {
     return(
       <div className="RecognitionForm">
 
-        <form onSubmit={this.handleOnSubmit}>
+        <Form onSubmit={this.handleOnSubmit}>
           <br />
           <h1>Who Do You Want to Recognize?</h1>
-          <select placeholder="Employee">{this.props.users.map((user, index) => (
-            <option
-              key={index}
-              value={user.id}
-              onChange={this.handleOnChange}
-              >
-              {user.attributes.full_name}
-            </option>))}
-          </select><br />
+            <Form.Label>Select an Employee</Form.Label>
+            <Form.Control as="select">
+              {this.props.users.map((user, index) => (
+                <option key={index} value={user.id} onChange={this.handleOnChange}>{user.attributes.full_name}</option>
+              ))}
+            </Form.Control>
 
-          <input
+        <Form.Group>
+          <Form.Control as="textarea" rows="3"
             type="text"
             name="content"
             placeholder="Write your recognition here!"
             value={this.state.content}
-            onChange={this.handleOnChange}
-          /><br />
+            onChange={this.handleOnChange} />
+        </Form.Group>
 
-          <input
-            type="submit"
-            value="Submit"
-          />
-        </form>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
       </div>
     )
   }
