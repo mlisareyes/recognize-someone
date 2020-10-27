@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 // import {currentUser} from '../actions/currentUser'
 
 
-class UserRecognitions extends Component {
+class UserRecognitions extends Component {  
   renderUserRecognitions = (recognitions) => {
     const filteredRecogs = recognitions.filter(recognition => recognition.attributes.receiver.id === Number(this.props.currentUser.id))
     return filteredRecogs.map((recog, index) => {
