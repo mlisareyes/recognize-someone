@@ -6,7 +6,7 @@ import { Form, Button } from 'react-bootstrap'
 
 
 class SignUp extends Component {
-  constructor(props) {
+  constructor(props) { 
     super(props)
 
     this.state = {

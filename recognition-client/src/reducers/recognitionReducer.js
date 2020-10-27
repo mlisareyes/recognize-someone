@@ -13,16 +13,3 @@ const recognitionReducer = (state = [], action) => {
 }
 
 export default recognitionReducer
-
-
-
-
-
-// switch(action.type) {
-  //   case 'GET_RECOGNITIONS':
-  //     return action.payload
-  //   case 'CREATE_RECOGNITION':
-  //     return {recognition: action.recognition}
-  //   default:
-  //     return state;
-  // }

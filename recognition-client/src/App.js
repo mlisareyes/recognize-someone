@@ -5,9 +5,6 @@ import Recognitions from './containers/Recognitions'
 import UserContainer from './containers/UserContainer'
 import About from './components/About'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-// import {getRecognitions} from './actions/getRecognitions'
-// import {getUsers} from './actions/getUsers'
-// import {connect} from 'react-redux';
 // import {currentUser} from './actions/currentUser'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,12 +29,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({currentUser}) => {
-  return {
-    currentUser: currentUser
-  }
-}
+// const mapStateToProps = ({currentUser}) => {
+//   return {
+//     currentUser: currentUser
+//   }
+// }
 
-export default connect(mapStateToProps)(App)
-// export default App
-// export default connect(null, {getRecognitions, getUsers})(App)
+// export default connect(mapStateToProps)(App)
+export default App

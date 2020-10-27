@@ -19,10 +19,7 @@ class Login extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.loginUser(this.state, () => {
-      // console.log(this.props.user)
       this.props.history.push('/home')
-      // email: this.state.email,
-      // password: this.state.password
     })
     this.setState({
       email: "",
