@@ -6,14 +6,9 @@ import About from './components/About'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import {currentUser} from './actions/currentUser'
-// import { connect } from 'react-redux';
 
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.currentUser()
-  // }
 
   render() {
     return (
@@ -29,11 +24,4 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = ({currentUser}) => {
-//   return {
-//     currentUser: currentUser
-//   }
-// }
-
-// export default connect(mapStateToProps)(App)
 export default App

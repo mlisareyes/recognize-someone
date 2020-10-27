@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Content from './Content'
 import { connect } from 'react-redux';
 import {deleteRecognition} from '../actions/deleteRecognition'
 import { Button, Card } from 'react-bootstrap'
@@ -46,18 +45,3 @@ const mapStateToProps = ({currentUser}) => {
 }
 
 export default connect(mapStateToProps, {deleteRecognition})(Newsfeed)
-
-
-//
-// const renderRecognitions = (recognitions) => {
-//   // const sortedRecognitions = recognitions.sort((a, b) => b.id - a.id)
-//   return recognitions.map(recognition => {
-//     return (
-//       // <div className="recognition-card" key={recognition.id}>
-//       <div></div>
-//         <p>{recognitions.content}</p>
-//
-//       </div>
-//     )
-//   })
-// }
